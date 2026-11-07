@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171917">
+  <meta name="description" content="Selected design work by Kourosh Hekmatara.">
+  <title>docs.hekmatara — Design portfolio</title>
+  <script>
+    (() => {
+      let savedTheme;
+      try { savedTheme = localStorage.getItem("portfolio-theme-override"); } catch {}
+      const systemTheme = typeof window.matchMedia === "function" ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : "dark";
+      document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">docs.hekmatara</a>
+    <div class="header-actions">
+      <a class="header-index" href="#project-index">INDEX</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+        <span class="theme-icon sun-icon" aria-hidden="true" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span>
+        <span class="theme-icon moon-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.4 15.6A8.5 8.5 0 0 1 8.4 3.6 8.5 8.5 0 1 0 20.4 15.6Z"/></svg></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-crumbbar">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="project-nav">
+      <span class="menu-icon" aria-hidden="true">☰</span><span>PROJECTS</span>
+    </button>
+    <div class="mobile-crumb"><span>WORK</span><b aria-hidden="true">/</b><strong id="mobile-project-name">Personal projects</strong></div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="left-sidebar" id="project-nav" aria-label="Project navigation">
+      <div class="sidebar-nav-groups">
+        <section class="project-nav-group" aria-labelledby="personal-projects-label">
+          <div class="nav-section-label" id="personal-projects-label">Personal projects</div>
+          <nav class="project-nav" id="personal-project-nav-list" aria-label="Personal projects"></nav>
+        </section>
+        <section class="project-nav-group" aria-labelledby="agency-projects-label">
+          <div class="nav-section-label" id="agency-projects-label">Agency projects</div>
+          <nav class="project-nav" id="agency-project-nav-list" aria-label="Agency projects"></nav>
+        </section>
+      </div>
+    </aside>
+
+    <button class="nav-scrim" type="button" aria-label="Close project navigation" tabindex="-1"></button>
+
+    <main class="document" id="main-content">
+      <div class="home-view" id="home-view">
+        <section class="page-intro" id="top" aria-labelledby="page-title">
+          <video class="intro-video" autoplay muted loop playsinline preload="metadata" aria-label="A short film from Kourosh Hekmatara’s design portfolio">
+            <source src="Projects/IMG_07672.mp4" type="video/mp4">
+          </video>
+          <div class="intro-label"><button class="email-copy" id="copy-email" type="button" aria-label="Copy k@hekmatara.com to clipboard">k@hekmatara.com</button><span class="intro-mark" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1v14M1 8h14M3.05 3.05l9.9 9.9m0-9.9-9.9 9.9"/></svg></span></div>
+          <h1 id="page-title">I'm a designer of spaces, systems, objects and ideas.</h1>
+          <p>Selected collection of my work.</p>
+        </section>
+        <div class="copy-toast" id="copy-toast" role="status" aria-live="polite" hidden>Copied to clipboard</div>
+
+        <div class="project-list" id="project-index" aria-label="Selected design projects"></div>
+
+        <section class="document-section portfolio-about" id="about">
+          <div class="section-heading"><h3>About me</h3></div>
+          <p class="section-copy">I’m Kourosh Hekmatara, a designer working across objects, digital experiences and visual communication.</p>
+        </section>
+
+        <section class="document-section portfolio-cv" id="cv">
+          <div class="section-heading"><h3>CV</h3></div>
+          <p class="section-copy">CV details will be added here.</p>
+        </section>
+
+        <section class="more-work" id="more-work" aria-label="More projects">
+          <span class="more-work-mark" aria-hidden="true">+</span>
+          <p>More work soon.</p>
+        </section>
+
+      </div>
+
+      <div class="project-view" id="project-view" hidden>
+        <div id="project-detail"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="site-footer" aria-label="Portfolio footer">
+      <div class="footer-scene">
+        <svg class="footer-printer" viewBox="0 0 1440 760" role="img" aria-label="A detailed line illustration of an open-frame 3D printer extruding the name Hekmatara">
+          <defs>
+            <pattern id="printer-hatch-fine" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(32)">
+              <path d="M0 0V9" fill="none" stroke="currentColor" stroke-width="1" opacity=".46" />
+            </pattern>
+            <pattern id="printer-hatch-dense" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(32)">
+              <path d="M0 0V5" fill="none" stroke="currentColor" stroke-width=".8" opacity=".5" />
+            </pattern>
+            <pattern id="printer-crosshatch" width="8" height="8" patternUnits="userSpaceOnUse">
+              <path d="M-2 2 2-2M0 8 8 0M6 10l4-4M-2 6l4 4M6-2l4 4" fill="none" stroke="currentColor" stroke-width=".7" opacity=".38" />
+            </pattern>
+            <clipPath id="printer-bed-clip"><path d="M452 486H988l112 112H340z" /></clipPath>
+            <clipPath id="printer-left-post-clip"><path d="M344 108h78v536h-78z" /></clipPath>
+            <clipPath id="printer-right-post-clip"><path d="M1018 108h78v536h-78z" /></clipPath>
+          </defs>
+
+          <g class="printer-ground" fill="none" stroke="currentColor" stroke-linecap="square">
+            <path d="M230 674h980" class="ground-line" />
+            <path d="M290 686h860M336 698h768M380 710h680" class="ground-hatch" />
+          </g>
+
+          <g class="printer-frame" stroke="currentColor" stroke-linejoin="round">
+            <path d="M312 106h816v52H312zM344 116h752v32H344z" class="frame-beam" />
+            <path d="M344 108h78v536h-78zM1018 108h78v536h-78z" class="frame-post" />
+            <path d="M352 118h62v516h-62zM1026 118h62v516h-62z" class="frame-post-inner" />
+            <path d="M314 614h812v54H314zM292 654h856v24H292z" class="frame-base" />
+            <path d="M328 621h784v40H328zM306 661h828v13H306z" class="frame-base-inner" />
+            <path d="M344 108h78v536h-78z" fill="url(#printer-hatch-fine)" class="frame-hatch" />
+            <path d="M1018 108h78v536h-78z" fill="url(#printer-hatch-fine)" class="frame-hatch" />
+            <path d="M312 106h816v52H312z" fill="url(#printer-hatch-dense)" class="beam-hatch" />
+            <path d="M314 614h812v54H314z" fill="url(#printer-hatch-fine)" class="beam-hatch" />
+            <path d="M329 115v34m782-34v34M329 625v32m782-32v32" class="extrusion-slots" />
+            <path d="M374 125v18m-12-9h24M1066 125v18m-12-9h24M374 628v22m-12-11h24M1066 628v22m-12-11h24" class="frame-fasteners" />
+          </g>
+
+          <g class="printer-z-axis" fill="none" stroke="currentColor" stroke-linecap="square">
+            <path d="M443 151v454M997 151v454" class="z-guide" />
+            <path d="M458 154v440M982 154v440" class="z-screw" />
+            <path d="M452 174l12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8" class="z-thread" />
+            <path d="M976 174l12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8m-12 23 12-8" class="z-thread" />
+            <path d="M425 164h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38" class="z-bearing" />
+            <path d="M977 164h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38m-38 19h38" class="z-bearing" />
+          </g>
+
+          <g class="printer-gantry" stroke="currentColor" stroke-linejoin="round">
+            <path d="M394 173h652v74H394z" class="x-beam" />
+            <path d="M405 183h630v50H405z" fill="url(#printer-hatch-fine)" class="x-beam-hatch" />
+            <path d="M397 250h646" class="belt-line" />
+            <path d="M417 252l7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7m8 7 7-7" class="belt-teeth" />
+            <path d="M389 166h24v89h-24zM1027 166h24v89h-24z" class="gantry-block" />
+            <circle cx="401" cy="210" r="18" class="idler-wheel" /><circle cx="1039" cy="210" r="18" class="idler-wheel" />
+            <circle cx="401" cy="210" r="8" class="idler-center" /><circle cx="1039" cy="210" r="8" class="idler-center" />
+          </g>
+
+          <g class="printer-bed" stroke="currentColor" stroke-linejoin="round">
+            <path d="M452 486H988l112 112H340z" class="bed-surface" />
+            <path d="M452 486H988l112 112H340z" fill="url(#printer-crosshatch)" class="bed-hatch" />
+            <g clip-path="url(#printer-bed-clip)" class="bed-grid">
+              <path d="M370 510h670M385 525h684M400 540h698M415 555h714M430 570h730M455 480v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135m35-135v135" />
+            </g>
+            <path d="M340 598v24l110 25h580l110-49v-24M386 647v18m578-18v18" class="bed-edge" />
+            <path d="M430 628h565l-29 19H459z" fill="url(#printer-hatch-dense)" class="bed-shadow" />
+            <path d="M468 612h502m-480 9h458m-421 15h386" class="bed-layer-line" />
+            <path d="M495 648v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18m38-18v18" class="bed-support" />
+          </g>
+
+          <g class="printer-screen" stroke="currentColor" stroke-linejoin="round">
+            <path d="M250 480h112v142H250z" class="screen-housing" />
+            <path d="M260 490h92v82h-92z" class="screen-glass" />
+            <path d="M268 501h70v48h-70z" fill="url(#printer-hatch-dense)" class="screen-hatch" />
+            <path d="M274 509h42m-42 9h56m-56 9h35m-35 9h49" class="screen-ui" />
+            <circle cx="306" cy="594" r="17" class="screen-knob" /><circle cx="306" cy="594" r="4" class="screen-knob-center" />
+            <path d="M276 616h60m-50 8h40" class="screen-vents" />
+          </g>
+
+          <g class="printer-motors" stroke="currentColor" stroke-linejoin="round">
+            <path d="M354 590h58v53h-58zM1028 590h58v53h-58z" class="z-motor" />
+            <path d="M354 590h58v53h-58zM1028 590h58v53h-58z" fill="url(#printer-hatch-dense)" class="motor-hatch" />
+            <circle cx="383" cy="616" r="11" class="motor-detail" /><circle cx="1057" cy="616" r="11" class="motor-detail" />
+            <path d="M372 616h22m-11-11v22M1046 616h22m-11-11v22" class="motor-cross" />
+            <path d="M320 637h75m648 0h75" class="motor-foot" />
+          </g>
+
+          <g class="printer-cable" fill="none" stroke="currentColor" stroke-linecap="round">
+            <path d="M780 180c90-50 177-34 180 28 2 38-19 58-55 63" />
+            <path d="M789 184c76-39 151-25 156 24 3 25-12 42-39 51" />
+            <path d="M782 185c-22 0-42 4-60 12" class="cable-hatch" />
+          </g>
+
+          <g class="printer-carriage" stroke="currentColor" stroke-linejoin="round">
+            <path d="M644 158h144v142H644z" class="carriage-shell" />
+            <path d="M653 168h126v124H653z" fill="url(#printer-hatch-fine)" class="carriage-hatch" />
+            <path d="M674 172h84v24h-84z" class="carriage-top" />
+            <path d="M660 205h112v12H660z" class="carriage-seam" />
+            <circle cx="716" cy="250" r="35" class="extruder-fan" />
+            <circle cx="716" cy="250" r="28" class="fan-ring" />
+            <circle cx="716" cy="250" r="6" class="fan-hub" />
+            <path d="M716 224v20m18-11-14 14m25 3h-20m10 18-14-14m-5 26v-20m-18 11 14-14m-25-3h20m-10-18 14 14" class="fan-spokes" />
+            <path d="M680 287v48l22 24h28l22-24v-48z" class="nextruder-lower" />
+            <path d="M692 299h60v24h-60z" fill="url(#printer-hatch-dense)" class="nextruder-hatch" />
+            <path d="M702 359h28l-8 18h-12zM710 377h12l-4 12h-4z" class="nozzle" />
+            <path d="M716 388v86" class="printer-filament" />
+            <path d="M686 183h-20m110 0h-20M685 277h-20m110 0h-20" class="carriage-fasteners" />
+          </g>
+
+          <g class="extruded-word" text-anchor="middle" aria-hidden="true">
+            <text class="extrusion-side extrusion-layer-1" x="720" y="562">HEKMATARA</text>
+            <text class="extrusion-side extrusion-layer-2" x="720" y="556">HEKMATARA</text>
+            <text class="extrusion-side extrusion-layer-3" x="720" y="550">HEKMATARA</text>
+            <text class="extrusion-side extrusion-layer-4" x="720" y="544">HEKMATARA</text>
+            <text class="extrusion-side extrusion-layer-5" x="720" y="538">HEKMATARA</text>
+            <text class="extrusion-top" x="720" y="532">HEKMATARA</text>
+            <path class="extrusion-underline" d="M480 544h478" />
+          </g>
+
+          <g class="printer-etching" fill="none" stroke="currentColor" stroke-linecap="square">
+            <path d="M300 130h22m-22 10h22m790-10h22m-22 10h22M300 636h22m-22 10h22m790-10h22m-22 10h22" />
+            <path d="M440 480l24-18m-8 30 24-18m500 6 24-18m-8 30 24-18" class="diagonal-etch" />
+            <path d="M470 460h20m-10-10v20m480-10h20m-10-10v20" class="registration-marks" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="footer-wordmark-wrap">
+        <p class="footer-wordmark-label">END OF DOCUMENT</p>
+        <a class="footer-wordmark" href="#top" data-footer-target="top" aria-label="docs.hekmatara">
+          <span aria-hidden="true">D</span><span aria-hidden="true">O</span><span aria-hidden="true">C</span><span aria-hidden="true">S</span><span aria-hidden="true">.</span><span aria-hidden="true">H</span><span aria-hidden="true">E</span><span aria-hidden="true">K</span><span aria-hidden="true">M</span><span aria-hidden="true">A</span><span aria-hidden="true">T</span><span aria-hidden="true">A</span><span aria-hidden="true">R</span><span aria-hidden="true">A</span>
+        </a>
+      </div>
+
+      <div class="footer-meta">
+        <p class="footer-note">Spaces, systems, objects and ideas.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#project-index" data-footer-target="project-index">Projects</a>
+          <a href="#about" data-footer-target="about">About</a>
+          <a href="#cv" data-footer-target="cv">CV</a>
+          <a href="mailto:k@hekmatara.com">Email ↗</a>
+        </nav>
+        <span class="footer-credit">© Kourosh Hekmatara</span>
+      </div>
+    </footer>
+
+    <aside class="right-sidebar" aria-label="Page navigation">
+      <div class="right-sticky">
+        <nav class="toc-links" id="toc-links" aria-label="On this page"></nav>
+      </div>
+    </aside>
+  </div>
+  <span class="copy-cursor" id="copy-cursor" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="12" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+  </span>
+</body>
+</html>
